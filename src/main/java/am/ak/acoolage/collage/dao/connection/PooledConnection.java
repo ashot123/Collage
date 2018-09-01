@@ -16,7 +16,7 @@ public class PooledConnection {
     static {
         DriverAdapterCPDS cpds = new DriverAdapterCPDS();
         try {
-            cpds.setDriver("com.mysql.jdbc.Driver");
+            cpds.setDriver("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -27,8 +27,8 @@ public class PooledConnection {
         SharedPoolDataSource tds = new SharedPoolDataSource();
         tds.setConnectionPoolDataSource(cpds);
         tds.setMaxTotal(10);
-        /*tds.setMaxWait(50);
-        tds.setMaxTotal();*/
+        tds.setDefaultMaxIdle(1);
+        tds.setDefaultMaxWaitMillis(60000); // 1 sec = 1000 ms, 10 seconds
 
         tds.setMaxTotal(50);
 
