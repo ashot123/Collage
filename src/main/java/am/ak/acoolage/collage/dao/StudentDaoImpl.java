@@ -1,8 +1,7 @@
 package am.ak.acoolage.collage.dao;
 
-import am.ak.acoolage.collage.dao.connection.DataSourceSelector;
+import am.ak.acoolage.collage.dao.connection.PooledConnection;
 import am.ak.acoolage.collage.dao.exception.DaoSystemException;
-import am.ak.acoolage.collage.dao.exception.DbSystemException;
 import am.ak.acoolage.collage.entities.Student;
 
 import java.sql.*;
@@ -17,8 +16,8 @@ public class StudentDaoImpl {
 
         try {
             students = new ArrayList<>();
-            Connection connection = DataSourceSelector.getDataSource().getConnection();
-
+            //Connection connection = DataSourceSelector.getDataSource().getConnection();
+            Connection connection = PooledConnection.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(
                     "select id, first_name, last_name " +
                             "from collage.students " +
@@ -43,7 +42,7 @@ public class StudentDaoImpl {
             }
 
             return students;
-        } catch (DbSystemException | SQLException e) {
+        } catch (SQLException e) {
             throw new DaoSystemException("Exception"); // TODO
         }
 
@@ -53,7 +52,8 @@ public class StudentDaoImpl {
         Connection connection;
         int rowCount;
         try {
-            connection = DataSourceSelector.getDataSource().getConnection();
+            connection = PooledConnection.getConnection();
+
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT COUNT(*) FROM collage.students");
             //Connection connection = DataSourceSelector.getDataSource().getConnection();
@@ -61,7 +61,7 @@ public class StudentDaoImpl {
             resultSet.next();
             rowCount = resultSet.getInt(1);
 
-        } catch (DbSystemException | SQLException e) {
+        } catch (SQLException e) {
             throw new DaoSystemException(e); // TODO
         }
 
