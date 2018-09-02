@@ -1,4 +1,4 @@
-package am.ak.acoolage.collage.entities;
+package am.ak.coolage.collage.entities;
 
 public class Student {
     private int id;

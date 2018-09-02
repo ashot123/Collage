@@ -1,4 +1,4 @@
-package am.ak.acoolage.collage.dao.exception;
+package am.ak.coolage.collage.dao.exception;
 
 import java.sql.SQLException;
 

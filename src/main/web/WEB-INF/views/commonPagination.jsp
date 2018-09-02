@@ -3,6 +3,9 @@
 <c:set var="numberOfPages" value="${param.numberOfPages}"/> <%--//4--%>
 <c:set var="servletName" value="${param.servletName}"/> <%--//4--%>
 <br/>
+<%--<c:if test="${page gt numberOfPages}">
+    <c:set  var="page"  value="1"/>
+</c:if>--%>
 <c:choose>
     <c:when test="${numberOfPages eq 0}">
         <div>
@@ -13,7 +16,7 @@
         <table border="0" cellpadding="0" cellspacing="0" style="margin-left:30px">
             <tr>
                 <td>
-                    <%--For displaying Previous link --%>
+                        <%--For displaying Previous link --%>
                     <c:if test="${page gt 1}">
                         <a href="${servletName}?page=${page - 1}">Previous</a>
                     </c:if>
@@ -29,7 +32,7 @@
                             </c:otherwise>
                         </c:choose>
                     </c:forEach>
-                    <%--For displaying Next link --%>
+                        <%--For displaying Next link --%>
                     <c:if test="${page lt numberOfPages}">
                         <a href="${servletName}?page=${page + 1}">Next</a>
                     </c:if>

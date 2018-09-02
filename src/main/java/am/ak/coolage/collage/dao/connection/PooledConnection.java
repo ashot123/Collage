@@ -1,4 +1,4 @@
-package am.ak.acoolage.collage.dao.connection;
+package am.ak.coolage.collage.dao.connection;
 
 import org.apache.commons.dbcp2.cpdsadapter.DriverAdapterCPDS;
 import org.apache.commons.dbcp2.datasources.SharedPoolDataSource;

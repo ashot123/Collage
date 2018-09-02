@@ -1,4 +1,3 @@
--- students
 INSERT INTO `collage`.`students` (`first_name`, `last_name`)
 VALUES ('Vazgeb', 'Petrusyan'),
        ('Gurgen', 'Soghomonyan'),
@@ -8,5 +7,13 @@ VALUES ('Vazgeb', 'Petrusyan'),
        ('Hamlet', 'Karapetyan'),
        ('Vazgen', 'Gevorgyan');
 
-
--- DROP TABLE `collage`.`students`;
+INSERT INTO `collage`.`teachers` (`teacher_name`)
+VALUES ('Mkhitaryan'),
+       ('Samvelyan'),
+       ('Gecorgyan'),
+       ('Manukyan'),
+       ('Borotyan'),
+       ('Mesropyan'),
+       ('Վահագյան'),
+       ('Իգիտթյան'),
+       ('Gevorgyan');

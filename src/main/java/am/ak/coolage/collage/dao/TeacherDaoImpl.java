@@ -1,26 +1,26 @@
-package am.ak.acoolage.collage.dao;
+package am.ak.coolage.collage.dao;
 
-import am.ak.acoolage.collage.dao.connection.PooledConnection;
-import am.ak.acoolage.collage.dao.exception.DaoSystemException;
-import am.ak.acoolage.collage.entities.Student;
+import am.ak.coolage.collage.dao.connection.PooledConnection;
+import am.ak.coolage.collage.dao.exception.DaoSystemException;
+import am.ak.coolage.collage.entities.Teacher;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class StudentDaoImpl {
+public class TeacherDaoImpl {
 
-    public List<Student> getPageStudents(int offset, int noOfRecords) throws DaoSystemException {
-        ArrayList<Student> students;
+    public List<Teacher> getPageTeachers(int offset, int noOfRecords) throws DaoSystemException {
+        ArrayList<Teacher> teachers;
 
         try {
-            students = new ArrayList<>();
+            teachers = new ArrayList<>();
             //Connection connection = DataSourceSelector.getDataSource().getConnection();
             Connection connection = PooledConnection.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(
-                    "select id, first_name, last_name " +
-                            "from collage.students " +
+                    "select id, teacher_name " +
+                            "from collage.teachers " +
                             "order by id " +
                             "limit ?, ?");
 
@@ -32,16 +32,15 @@ public class StudentDaoImpl {
             //String query = "select SQL_CALC_FOUND_ROWS * from employee limit " + offset + ", " + noOfRecords;
 
             while (resultSet.next()) {
-                Student student = new Student();
-                student.setId(resultSet.getInt("id"));
-                student.setFirstName(resultSet.getNString("first_name"));
-                student.setLastName(resultSet.getNString("last_name"));
+                Teacher teacher = new Teacher();
+                teacher.setId(resultSet.getInt("id"));
+                teacher.setName(resultSet.getNString("teacher_name"));
                 //student.setDepartment(resultSet.getNString("department_name"));
 
-                students.add(student);
+                teachers.add(teacher);
             }
 
-            return students;
+            return teachers;
         } catch (SQLException e) {
             throw new DaoSystemException("Exception"); // TODO
         }
@@ -55,7 +54,7 @@ public class StudentDaoImpl {
             connection = PooledConnection.getConnection();
 
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT COUNT(*) FROM collage.students");
+            ResultSet resultSet = statement.executeQuery("SELECT COUNT(*) FROM collage.teachers");
             //Connection connection = DataSourceSelector.getDataSource().getConnection();
             // Get the number of rows from the result set
             resultSet.next();

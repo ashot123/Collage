@@ -27,7 +27,11 @@
 </head>
 <body>
 <%--<img src=<c:url value="/img/pageUS.jpg"/>--%>
-             <p><h3><a href="/students">Students</a></h3></p>
-<p><h3>Todo...</h3></p>
+<p>
+<h3><a href="/students">Students</a></h3>
+<p>
+<h3><a href="/teachers">Teachers</a></h3>
+
+
 </body>
 </html>
