@@ -31,6 +31,8 @@
 <h3><a href="/students">Students</a></h3>
 <p>
 <h3><a href="/teachers">Teachers</a></h3>
+<p>
+<h3><a href="/courses">Courses</a></h3>
 
 
 </body>

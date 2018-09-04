@@ -17,3 +17,11 @@ VALUES ('Mkhitaryan'),
        ('Վահագյան'),
        ('Իգիտթյան'),
        ('Gevorgyan');
+
+
+INSERT INTO `collage`.`courses` (`course_name`)
+VALUES ('Java 1'),
+       ('Java 2'),
+       ('C#'),
+       ('SQL'),
+       ('Angular');

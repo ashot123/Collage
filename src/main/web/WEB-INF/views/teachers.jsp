@@ -24,7 +24,7 @@
 <H3>Collage Teachers</H3>
 <c:if test="${not empty teachers}">
     <table style="margin-left:30px" border="1">
-        <thead>
+        <thead style="background: lightblue">
         <tr>
             <td>ID</td>
             <td>Name</td>
