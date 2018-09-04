@@ -25,3 +25,13 @@ VALUES ('Java 1'),
        ('C#'),
        ('SQL'),
        ('Angular');
+
+INSERT INTO `collage`.`rooms` (`room_name`)
+VALUES ('A11'),
+       ('A11'),
+       ('B1'),
+       ('B4'),
+       ('B4'),
+       ('B7'),
+       ('B8'),
+       ('B11');
