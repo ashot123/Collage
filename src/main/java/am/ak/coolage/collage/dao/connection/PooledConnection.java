@@ -26,7 +26,7 @@ public class PooledConnection {
 
         SharedPoolDataSource tds = new SharedPoolDataSource();
         tds.setConnectionPoolDataSource(cpds);
-        tds.setMaxTotal(10);
+        tds.setMaxTotal(2);
         tds.setDefaultMaxIdle(1);
         tds.setDefaultMaxWaitMillis(60000); // 1 sec = 1000 ms, 10 seconds
 

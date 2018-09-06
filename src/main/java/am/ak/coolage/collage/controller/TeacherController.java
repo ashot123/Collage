@@ -40,4 +40,9 @@ public class TeacherController extends HttpServlet {
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/teachers.jsp");
         rd.forward(request, response);
     }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        int x = 3;
+    }
 }

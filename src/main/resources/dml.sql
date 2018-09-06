@@ -35,3 +35,11 @@ VALUES ('A11'),
        ('B7'),
        ('B8'),
        ('B11');
+
+INSERT INTO `collage`.`courses_details` (`courses_id`, `teachers_id`, `rooms_id`)
+VALUES
+      ('1', '1', '2'),
+      ('1', '2', '1'),
+      ('1', '2', '2'),
+      ('2', '1', '2'),
+      ('2', '2', '2');

@@ -33,11 +33,14 @@
         <c:forEach items="${teachers}" var="currentTeacher">
             <tr>
                 <td>${currentTeacher.id}</td>
-                <td>${currentTeacher.name}</td>
-                    <%--<td>${currentStudent.department}</td>--%>
+                <td>
+                    <a href="/teacherDetails?teacherId=${currentTeacher.id}&teacherName=${currentTeacher.name}"
+                       title="Details of ${currentTeacher.name}">
+                            ${currentTeacher.name}
+                    </a>
+                </td>
             </tr>
         </c:forEach>
-
     </table>
 </c:if>
 

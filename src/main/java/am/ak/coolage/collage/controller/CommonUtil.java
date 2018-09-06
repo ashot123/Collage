@@ -36,4 +36,21 @@ class CommonUtil {
         return pageId;
     }
 
+    static int getSelectedPageId(HttpServletRequest request, int rows, int numberOfRecord) {
+        String pageStr = request.getParameter("teacherId");
+
+        if (pageStr == null) {
+            pageStr = "1";
+        }
+
+        int pageId = Integer.valueOf(pageStr);
+
+        // real page number again request pageId
+        double realPageNumber = Math.ceil(numberOfRecord / (rows * 1.0));
+        if (pageId > realPageNumber || pageId < 1) {
+            pageId = 1;
+        }
+        return pageId;
+    }
+
 }
